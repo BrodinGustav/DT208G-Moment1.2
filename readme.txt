@@ -1,0 +1,6 @@
+--21-03-2024-- Installerat parcel
+--21-03-2024-- Installerat baspaket
+--21-03-2024-- Strukturerat filer för SRC
+--21-03-2024-- Skapat main.ts fil och länkat till html
+--21-03-2024-- Skapat interface courseInfo i main.ts
+--21-03-2024-- Skapat formulär i HTML samt stylat HTML via css
