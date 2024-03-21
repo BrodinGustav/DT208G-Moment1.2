@@ -5,3 +5,6 @@
 --21-03-2024-- Skapat interface courseInfo i main.ts
 --21-03-2024-- Skapat formulär i HTML samt stylat HTML via css
 --21-03-2024-- Skapat grundläggande TS kod. Hämtat in ID från HTML samt värde. Kopplat till funktion för utskrift av kursinformatino. Får error vid hämtning av ID för knapp. "submitBtn is possible null".
+--21-03-2024-- Löst "submitBtn is possible null" genom att lägga till "as HTMLButtonElement".
+--21-03-2024-- Kompilerat TS till JS
+--21-03-2024-- Får ingen utskrift till webbläsaren. Ändrat knappelement från "submit" till "button" samt ändrat stavfel för "output". Får error "cannot read properties of null" gällande " const syllabus = courseUrlInput.value;" vid hämtning av värde

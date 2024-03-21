@@ -33,11 +33,9 @@ function addCourse() {
 const course: CourseInfo = {code:code, name:name, progression:progression, syllabus:syllabus};
 
 //Skriv ut kursinformation
-outputDiv.textContent = `Kurskod: ${course.code}, Kursnamn: ${course.name}, Progression: ${course.progression}, Kurslänk: ${course.syllabus}`;
+outputDiv.innerHTML = `Kurskod: ${course.code}, Kursnamn: ${course.name}, Progression: ${course.progression}, Kurslänk: ${course.syllabus}`;
 }
 
-
-
 //Hämt ID och sätt Eventlistener för knapp kopplad till funktion 
-const submitBtn = document.getElementById("button");
+const submitBtn = document.getElementById("button") as HTMLButtonElement;;
 submitBtn.addEventListener('click', addCourse);
