@@ -1,0 +1,18 @@
+{
+  "name": "moment1.2",
+  "version": "1.0.0",
+  "description": "Moment 1.2 - Grunderna i TypeScript",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "author": "Gustav Brodin",
+  "license": "ISC",
+  "devDependencies": {
+    "htmlnano": "^2.1.0",
+    "parcel": "^2.12.0",
+    "uglifycss": "^0.0.29",
+    "uglifyjs": "^2.4.11"
+  }
+}
