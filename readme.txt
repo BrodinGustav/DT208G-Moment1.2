@@ -4,3 +4,4 @@
 --21-03-2024-- Skapat main.ts fil och länkat till html
 --21-03-2024-- Skapat interface courseInfo i main.ts
 --21-03-2024-- Skapat formulär i HTML samt stylat HTML via css
+--21-03-2024-- Skapat grundläggande TS kod. Hämtat in ID från HTML samt värde. Kopplat till funktion för utskrift av kursinformatino. Får error vid hämtning av ID för knapp. "submitBtn is possible null".
