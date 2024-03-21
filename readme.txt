@@ -9,3 +9,4 @@
 --21-03-2024-- Kompilerat TS till JS
 --21-03-2024-- Får ingen utskrift till webbläsaren. Ändrat knappelement från "submit" till "button" samt ändrat stavfel för "output". Får error "cannot read properties of null" gällande " const syllabus = courseUrlInput.value;" vid hämtning av värde
 --21-03-2024-- Error löst genom kontrollkod ifall alla element hittats, samt justerad felstavning för hämtning av ID "courseURL"
+--21-03-2024-- Lagt till kontrollsats för progressionsvärden. 

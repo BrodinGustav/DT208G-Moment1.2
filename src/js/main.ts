@@ -34,6 +34,13 @@ function addCourse() {
     const progression = courseProgressionInput.value;
     const syllabus = courseUrlInput.value;
 
+    //Kontroll för progressionvärden
+    if(progression !== 'A' && progression !== 'B' && progression !== 'C') {
+        console.error("Ogiltigt progressionsvärde. Endast A, B eller C gäller");
+        alert("Endast progressionsvärde A, B eller C gäller");
+        return;
+    }
+
 //Skapa kursobjekt utifrån interface
 const course: CourseInfo = {code:code, name:name, progression:progression, syllabus:syllabus};
 
