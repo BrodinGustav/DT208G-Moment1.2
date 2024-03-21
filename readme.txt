@@ -15,4 +15,5 @@
 --21-03-2024-- Ändrat struktur på displayCourse för att lösa utskiftproblemet. 
 --21-03-2024-- Lagt till loop på loadcoursesLocalStorage för att visa hämtade kurser vid laddning av sidan
 --21-03-2024-- Korrigerat IF-sats som kontroll ifall kurskod är unik. Lagt till den nya kurskoden i existingCourseCodes genom push.
+--21-03-2024-- Försökt justera funktioner för uppdatering av kursinformation via webbläsaren. Lagt till showupdateForm for nya HTML element vid klick av uppdateraknapp. Lagt till knapp för uppdatering. Får error "Unexpected end of input (at index 34:25)
 

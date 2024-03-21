@@ -65,21 +65,48 @@ saveCoursesLocalStorage();
 displayCourse(newCourse);
 }
 
-//Funktion för att visa kursinformation
-function displayCourse(course: CourseInfo) {
-//Skapar HTMLsträng med kursinfo
-const courseInfoHTML = `<br><strong>Kurskod:</strong> ${course.code}<br>, <strong>Kursnamn:</strong> ${course.name}<br>, <strong>Progression:</strong> ${course.progression}<br>, <strong>Kurslänk:</strong> ${course.syllabus}<br>`;
-//Lägger till ny kursinfo till befintligt innehåll i output ID
-outputDiv.innerHTML += courseInfoHTML;
+
+
+/*****************Test för uppdatering av formulär***********************/
+function showUpdateForm(course:CourseInfo) {
+    const updateFormHTML = ` 
+    <form id="updateForm">
+            <label for="newCourseCode">Ny kurskod:</label><br>
+            <input id="newCourseCode" type="text" name="newCourseCode" value="${course.code}"><br>
+            <label for="newCourseName">Nytt kursnamn:</label><br>
+            <input id="newCourseName" type="text" name="newCourseName" value="${course.name}"><br>
+            <label for="newCourseProgression">Ny kursprogression:</label><br>
+            <input id="newCourseProgression" type="text" name="newCourseProgression" value="${course.progression}"><br>
+            <label for="newCourseURL">Ny kurslänk:</label><br>
+            <input id="newCourseURL" type="text" name="newCourseURL" value="${course.syllabus}"><br>
+            <input id="updateButton" type="button" value="Uppdatera">
+    </form>
+    `;
+
+    outputDiv.innerHTML = updateFormHTML;   
+
+    //Eventlistener för uppdaterar-knappen
+    const updateBtn = document.getElementById("updateButton") as HTMLButtonElement;
+    updateBtn.addEventListener("click", () => {
+        //Hämta in nya värden
+        const newCourseCode = (document.getElementById('newCourseCode') as HTMLInputElement).value;
+        const newCourseName = (document.getElementById('newCourseName') as HTMLInputElement).value;
+        const newCourseProgression = (document.getElementById('newCourseProgression') as HTMLInputElement).value;
+        const newCourseURL = (document.getElementById('newCourseURL') as HTMLInputElement).value;
+
+        //Uppdatera kursen
+        updateCourse(course, newCourseCode, newCourseName, newCourseProgression, newCourseURL);
+    });
 }
 
 //Funktion för att uppdatera information om kurs
-function updateCourse(courseToUpdate: CourseInfo, newName:string, newProgression: string, newSyllabus: string) {
+function updateCourse(courseToUpdate: CourseInfo, newCode: string, newName:string, newProgression: string, newSyllabus: string) {
 
     //Hitta kursen i arrayen av kurser
 const index = courses.findIndex(course => course.code === courseToUpdate.code);
 
 //Uppdatera info
+courses[index].code = newCode;
 courses[index].name = newName;
 courses[index].progression = newProgression;
 courses[index].syllabus = newSyllabus;
@@ -89,8 +116,21 @@ saveCoursesLocalStorage();
 
 //Visa uppdaterad kursinformation
 displayCourse(courses[index]);
-
 }
+
+//Funktion för att visa kursinformation
+function displayCourse(course: CourseInfo) {
+    //Skapar HTMLsträng med kursinfo
+    const courseInfoHTML = `<br><strong>Kurskod:</strong> ${course.code}<br>, 
+    <strong>Kursnamn:</strong> ${course.name}<br>, 
+    <strong>Progression:</strong> ${course.progression}<br>, 
+    <strong>Kurslänk:</strong> ${course.syllabus}<br>
+    <button onclick="showUpdateForm(${JSON.stringify(course)})">Uppdatera</button><br>
+    `;
+
+    //Lägger till ny kursinfo till befintligt innehåll i output ID
+    outputDiv.innerHTML += courseInfoHTML;
+    }
 
 //Funktion för hämtning av kurser från localStorange
 function loadCoursesLocalStorage(){
