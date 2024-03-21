@@ -64,8 +64,10 @@ displayCourse(newCourse);
 
 //Funktion för att visa kursinformation
 function displayCourse(course: CourseInfo) {
-//Skriv ut kursinformation
-outputDiv.innerHTML = `<strong>Kurskod:</strong> ${course.code}, <strong>Kursnamn:</strong> ${course.name}, <strong>Progression:</strong> ${course.progression}, <strong>Kurslänk:</strong> ${course.syllabus}`;
+//Skapar HTMLsträng med kursinfo
+const courseInfoHTML = `<br><strong>Kurskod:</strong> ${course.code}<br>, <strong>Kursnamn:</strong> ${course.name}<br>, <strong>Progression:</strong> ${course.progression}<br>, <strong>Kurslänk:</strong> ${course.syllabus}<br>`;
+//Lägger till ny kursinfo till befintligt innehåll i output ID
+outputDiv.innerHTML += courseInfoHTML;
 }
 
 //Funktion för att uppdatera information om kurs

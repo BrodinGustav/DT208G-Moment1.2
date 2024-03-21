@@ -1,11 +1,9 @@
 5865
-90C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\dist\index.90c5fab6.js.map133554932204508743 0
 137C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\htmlnano\docs\versioned_sidebars\version-1.1.1-sidebars.json133554825570889595 0
 161C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\@parcel\optimizer-htmlnano\node_modules\css-tree\lib\syntax\pseudo\nth-last-child.js133554825573544345 0
 108C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\css-tree\lib\tokenizer\names.js133554825576853828 0
 134C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\csso\node_modules\css-tree\cjs\syntax\node\IdSelector.cjs133554825571010379 0
 108C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\caniuse-lite\data\regions\MK.js133554825581152883 0
-86C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\dist\index.90c5fab6.js133554932204448732 0
 123C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\@swc\helpers\src\_class_private_field_init.mjs133554825578819907 0
 107C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\svgo\plugins\removeMetadata.js133554825572529110 0
 124C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\caniuse-lite\data\features\sharedarraybuffer.js133554825583046673 0
@@ -59,7 +57,7 @@
 94C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\dotenv-expand\lib133554825564005977 1
 103C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\svgo\plugins\reusePaths.js133554825573368709 0
 94C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\@msgpackr-extract133554826013515659 1
-68C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\dist133554932204518746 1
+68C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\dist133554937414499686 1
 140C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\@parcel\optimizer-svgo\node_modules\svgo\plugins\mergeStyles.js133554825569448193 0
 108C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\source-map\lib\binary-search.js133554825565056121 0
 106C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\svgo\plugins\removeDoctype.js133554825572141472 0
@@ -145,7 +143,7 @@
 108C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\svgo\plugins\applyTransforms.js133554825570066304 0
 100C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\color-name\package.json133554825560214701 0
 113C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\svgo\plugins\removeOffCanvasPaths.js133554825572718272 0
-78C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\src\js\main.ts133554935723256533 0
+78C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\src\js\main.ts133554937611747218 0
 96C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\commander\Readme.md133554825564773411 0
 102C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\browserslist\package.json133554825565093464 0
 140C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\@parcel\optimizer-svgo\node_modules\mdn-data\css\selectors.json133554825568099033 0
@@ -5864,3 +5862,5 @@
 108C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\.bin\update-browserslist-db.ps1133554825588616647 0
 87C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\dist\index.c92073ef.css133554843516020072 0
 87C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\dist\style.c92073ef.css133554838086173043 0
+86C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\dist\index.90c5fab6.js133554937414343373 0
+90C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\dist\index.90c5fab6.js.map133554937414499686 0
