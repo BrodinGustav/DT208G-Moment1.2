@@ -1,7 +1,7 @@
-5865
+5866
 134C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\csso\node_modules\css-tree\cjs\syntax\node\Percentage.cjs133554825573533343 0
 95C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\lmdb\src\windows.c133554825573065371 0
-79C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\dist\index.html133554951439298243 0
+79C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\dist\index.html133555037156233180 0
 93C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\cosmiconfig\dist133554825569099924 1
 116C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\caniuse-lite\data\features\svg-fonts.js133554825583408101 0
 97C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\@parcel\rust\LICENSE133554825560478847 0
@@ -24,7 +24,7 @@
 95C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\picocolors\LICENSE133554825560153853 0
 125C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\caniuse-lite\data\features\permissions-policy.js133554825582138034 0
 132C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\@swc\helpers\cjs\_class_check_private_static_access.cjs133554825567571509 0
-74C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\readme.txt133555014901235081 0
+74C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\readme.txt133555029284030720 0
 74C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\.gitignore133554826175252878 0
 114C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\caniuse-lite\data\features\css-all.js133554825574695365 0
 123C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\csso\node_modules\css-tree\cjs\lexer\Lexer.cjs133554825572271062 0
@@ -34,7 +34,7 @@
 100C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\semver\classes\range.js133554825569667022 0
 99C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\ordered-binary\LICENSE133554825560167093 0
 132C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\@swc\helpers\_\_initializer_warning_helper\package.json133554825577623746 0
-76C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\package.json133554826013588598 0
+76C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\package.json133555037151707367 0
 105C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\nth-check\lib\compile.js.map133554825566017211 0
 144C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\caniuse-lite\data\features\mdn-css-unicode-bidi-isolate-override.js133554825581011923 0
 109C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\htmlnano\docs\docs\030-config.md133554825571740802 0
@@ -53,7 +53,7 @@
 94C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\dotenv-expand\lib133554825564005977 1
 103C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\svgo\plugins\reusePaths.js133554825573368709 0
 94C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\@msgpackr-extract133554826013515659 1
-68C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\dist133555027535882541 1
+68C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\dist133555037156539886 1
 140C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\@parcel\optimizer-svgo\node_modules\svgo\plugins\mergeStyles.js133554825569448193 0
 108C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\source-map\lib\binary-search.js133554825565056121 0
 106C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\svgo\plugins\removeDoctype.js133554825572141472 0
@@ -116,7 +116,7 @@
 97C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\@parcel\reporter-cli133554825566895837 1
 84C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\@parcel133554826013515659 1
 120C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\caniuse-lite\data\features\css-clip-path.js133554825575125037 0
-78C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\src\js\main.js133554870110624639 0
+78C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\src\js\main.js133555035959820600 0
 120C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\lmdb\node_modules\node-addon-api\LICENSE.md133554825567798144 0
 108C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\caniuse-lite\data\regions\CU.js133554825577651240 0
 108C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\caniuse-lite\data\regions\AI.js133554825566780094 0
@@ -1628,6 +1628,7 @@
 116C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\caniuse-lite\data\features\objectrtc.js133554825581823186 0
 122C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\caniuse-lite\data\features\css-crisp-edges.js133554825575347150 0
 96C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\picocolors\types.ts133554825564413725 0
+77C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\tsconfig.json133555035997012145 0
 97C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\path-type\index.d.ts133554825560907234 0
 137C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\csso\node_modules\css-tree\lib\syntax\node\MediaQueryList.js133554825576693370 0
 134C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\dom-serializer\node_modules\entities\lib\maps\decode.json133554825564389167 0
@@ -4773,7 +4774,7 @@
 106C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\@parcel\cache\lib\IDBCache.js133554825565079705 0
 108C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\@parcel\utils\src\objectHash.js133554825571307429 0
 111C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\@parcel\utils\src\openInBrowser.js133554825571511353 0
-91C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\dist\index.c92073ef.css.map133554951281462665 0
+91C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\dist\index.c92073ef.css.map133555037156529976 0
 102C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\@parcel\utils\src\path.js133554825571661125 0
 114C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\@parcel\utils\src\progress-message.js133554825571849248 0
 116C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\@parcel\utils\src\relativeBundlePath.js133554825572104689 0
@@ -5860,7 +5861,7 @@
 92C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\.bin\semver.ps1133554825588616647 0
 95C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\.bin\uglifycss.ps1133554825940756410 0
 108C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\node_modules\.bin\update-browserslist-db.ps1133554825588616647 0
-87C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\dist\index.c92073ef.css133554951281428340 0
 87C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\dist\style.c92073ef.css133554838086173043 0
-86C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\dist\index.90c5fab6.js133555027535882541 0
-90C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\dist\index.90c5fab6.js.map133555027535882541 0
+86C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\dist\index.90c5fab6.js133555037156233180 0
+90C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\dist\index.90c5fab6.js.map133555037156283203 0
+87C:\Utbildning\DT208G\Moment1 - Grunderna i TypeScript\Moment1.2\dist\index.c92073ef.css133555037156489908 0
