@@ -13,3 +13,4 @@
 --21-03-2024-- Lagt till nya funktioner "showCourseInfo" och "updateCourse" i försök att spara kursuppgifter i localStorage.
 --21-03-2024-- Problem med att utskrift försvinner vid varje ny kurs. 
 --21-03-2024-- Ändrat struktur på displayCourse för att lösa utskiftproblemet. 
+--21-03-2024-- Lagt till loop på loadcoursesLocalStorage för att visa hämtade kurser vid laddning av sidan

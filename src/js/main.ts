@@ -93,6 +93,8 @@ function loadCoursesLocalStorage(){
     const storedCourses = localStorage.getItem('courses');
     if(storedCourses) {
         courses = JSON.parse(storedCourses);
+        //Visar kurserna när de hämtats
+        courses.forEach(course => displayCourse(course));
     }
 }
 
