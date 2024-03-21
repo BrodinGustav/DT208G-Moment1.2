@@ -14,3 +14,5 @@
 --21-03-2024-- Problem med att utskrift försvinner vid varje ny kurs. 
 --21-03-2024-- Ändrat struktur på displayCourse för att lösa utskiftproblemet. 
 --21-03-2024-- Lagt till loop på loadcoursesLocalStorage för att visa hämtade kurser vid laddning av sidan
+--21-03-2024-- Korrigerat IF-sats som kontroll ifall kurskod är unik. Lagt till den nya kurskoden i existingCourseCodes genom push.
+

@@ -49,9 +49,12 @@ function addCourse() {
     //Kontroll för att säkerställa att kurskod är unik
     if(existingCourseCodes.includes(code)) {
         console.error("Kurskoden är inte unik.");
-        alert("Kurskoden är ej unik. Var god väljs annan");
+        alert("Kurskoden är ej unik. Var god väljs annan kurskod.");
         return;
     }
+
+    //Lägg till kurskoden i existingCourseCodes array
+    existingCourseCodes.push(code);
 
 //Skapa kursobjekt utifrån interface och lägg till i array för kurser
 let newCourse: CourseInfo = {code:code, name:name, progression:progression, syllabus:syllabus};
@@ -72,7 +75,8 @@ outputDiv.innerHTML += courseInfoHTML;
 
 //Funktion för att uppdatera information om kurs
 function updateCourse(courseToUpdate: CourseInfo, newName:string, newProgression: string, newSyllabus: string) {
-//Hitta kursen i arrayen av kurser
+
+    //Hitta kursen i arrayen av kurser
 const index = courses.findIndex(course => course.code === courseToUpdate.code);
 
 //Uppdatera info
