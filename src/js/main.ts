@@ -5,14 +5,19 @@ interface CourseInfo {
     syllabus: string;
 }
 
-//Hämt in ID från HTML?
-//Lägg till eventlistener?
-//Skriv ut till DOM?
-//Använd localstorage för att spara och hämta information när sidan laddas
-
-
 //Hämtar DOM-element för utskrift
 const outputDiv = document.getElementById('output') as HTMLDivElement;
+
+//Array som lagrar befintliga kurskoder. Kontroll för att göra varje kurskod unik.
+const existingCourseCodes: string [] = [];
+
+//Array som lagrar befintliga kurser
+let courses: CourseInfo[] = [];
+
+//Funktion för att spara kurser till localStorage
+function saveCoursesLocalStorage(){
+    localStorage.setItem('courses', JSON.stringify(courses));
+}
 
 //Funktion för att lägga till ny kurs
 function addCourse() {
@@ -41,12 +46,56 @@ function addCourse() {
         return;
     }
 
-//Skapa kursobjekt utifrån interface
-const course: CourseInfo = {code:code, name:name, progression:progression, syllabus:syllabus};
+    //Kontroll för att säkerställa att kurskod är unik
+    if(existingCourseCodes.includes(code)) {
+        console.error("Kurskoden är inte unik.");
+        alert("Kurskoden är ej unik. Var god väljs annan");
+        return;
+    }
 
+//Skapa kursobjekt utifrån interface och lägg till i array för kurser
+let newCourse: CourseInfo = {code:code, name:name, progression:progression, syllabus:syllabus};
+courses.push(newCourse);
+
+//Visa information om ny kurs
+saveCoursesLocalStorage();
+displayCourse(newCourse);
+}
+
+//Funktion för att visa kursinformation
+function displayCourse(course: CourseInfo) {
 //Skriv ut kursinformation
 outputDiv.innerHTML = `<strong>Kurskod:</strong> ${course.code}, <strong>Kursnamn:</strong> ${course.name}, <strong>Progression:</strong> ${course.progression}, <strong>Kurslänk:</strong> ${course.syllabus}`;
 }
+
+//Funktion för att uppdatera information om kurs
+function updateCourse(courseToUpdate: CourseInfo, newName:string, newProgression: string, newSyllabus: string) {
+//Hitta kursen i arrayen av kurser
+const index = courses.findIndex(course => course.code === courseToUpdate.code);
+
+//Uppdatera info
+courses[index].name = newName;
+courses[index].progression = newProgression;
+courses[index].syllabus = newSyllabus;
+
+//spara kurs efter uppdatering
+saveCoursesLocalStorage();
+
+//Visa uppdaterad kursinformation
+displayCourse(courses[index]);
+
+}
+
+//Funktion för hämtning av kurser från localStorange
+function loadCoursesLocalStorage(){
+    const storedCourses = localStorage.getItem('courses');
+    if(storedCourses) {
+        courses = JSON.parse(storedCourses);
+    }
+}
+
+//Ladda kurserna från localStorage när sidan laddas
+window.addEventListener('DOMContentLoaded', loadCoursesLocalStorage);
 
 //Hämt ID och sätt Eventlistener för knapp kopplad till funktion 
 const submitBtn = document.getElementById("button") as HTMLButtonElement;;

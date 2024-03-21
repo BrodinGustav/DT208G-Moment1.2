@@ -10,3 +10,6 @@
 --21-03-2024-- Får ingen utskrift till webbläsaren. Ändrat knappelement från "submit" till "button" samt ändrat stavfel för "output". Får error "cannot read properties of null" gällande " const syllabus = courseUrlInput.value;" vid hämtning av värde
 --21-03-2024-- Error löst genom kontrollkod ifall alla element hittats, samt justerad felstavning för hämtning av ID "courseURL"
 --21-03-2024-- Lagt till kontrollsats för progressionsvärden. 
+--21-03-2024-- Lagt till nya funktioner "showCourseInfo" och "updateCourse" i försök att spara kursuppgifter i localStorage.
+--21-03-2024-- Problem med att utskrift försvinner vid varje ny kurs. 
+
