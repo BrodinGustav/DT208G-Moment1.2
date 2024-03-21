@@ -21,7 +21,12 @@ function addCourse() {
     const courseCodeInput = document.getElementById('courseCode') as HTMLInputElement;
     const courseNameInput = document.getElementById('courseName') as HTMLInputElement;
     const courseProgressionInput = document.getElementById('courseProgression') as HTMLInputElement;
-    const courseUrlInput = document.getElementById('courseUrl') as HTMLInputElement;
+    const courseUrlInput = document.getElementById('courseURL') as HTMLInputElement;
+
+    if(!courseCodeInput || !courseNameInput || !courseProgressionInput || !courseUrlInput) {
+        console.error("Ett eller flera formulärelement hittdes ej");
+        return;
+    }
 
     //Hämta in värde från formulär
     const code = courseCodeInput.value;
@@ -33,7 +38,7 @@ function addCourse() {
 const course: CourseInfo = {code:code, name:name, progression:progression, syllabus:syllabus};
 
 //Skriv ut kursinformation
-outputDiv.innerHTML = `Kurskod: ${course.code}, Kursnamn: ${course.name}, Progression: ${course.progression}, Kurslänk: ${course.syllabus}`;
+outputDiv.innerHTML = `<strong>Kurskod:</strong> ${course.code}, <strong>Kursnamn:</strong> ${course.name}, <strong>Progression:</strong> ${course.progression}, <strong>Kurslänk:</strong> ${course.syllabus}`;
 }
 
 //Hämt ID och sätt Eventlistener för knapp kopplad till funktion 
