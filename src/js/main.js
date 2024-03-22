@@ -31,11 +31,20 @@ function addCourse() {
         return;
     }
     //Kontroll för att säkerställa att kurskod är unik
-    if (existingCourseCodes.includes(code)) {
+    var codeIsUnique = true;
+    if (existingCourseCodes.indexOf(code) !== -1) {
+        console.error("Kurskoden är inte unik.");
+        alert("Kurskoden är inte unik. Var god väljs annan kursokd.");
+        codeIsUnique = false;
+    }
+    if (!codeIsUnique) {
+        return;
+    }
+    /*if(existingCourseCodes.includes(code)) {
         console.error("Kurskoden är inte unik.");
         alert("Kurskoden är ej unik. Var god väljs annan kurskod.");
         return;
-    }
+    }*/
     //Lägg till kurskoden i existingCourseCodes array
     existingCourseCodes.push(code);
     //Skapa kursobjekt utifrån interface och lägg till i array för kurser
@@ -64,7 +73,18 @@ function showUpdateForm(course) {
 //Funktion för att uppdatera information om kurs
 function updateCourse(courseToUpdate, newCode, newName, newProgression, newSyllabus) {
     //Hitta kursen i arrayen av kurser
-    var index = courses.findIndex(function (course) { return course.code === courseToUpdate.code; });
+    var index = -1;
+    for (var i = 0; i < courses.length; i++) {
+        if (courses[i].code === courseToUpdate.code) {
+            index = i;
+            break;
+        }
+    }
+    if (index === -1) {
+        console.error("Kursen kunde inte hittas för uppdatering.");
+        return;
+    }
+    //const index = courses.findIndex(course => course.code === courseToUpdate.code);
     //Uppdatera info
     courses[index].code = newCode;
     courses[index].name = newName;
