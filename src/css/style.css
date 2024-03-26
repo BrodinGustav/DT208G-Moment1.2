@@ -1,7 +1,10 @@
 body{
     margin:0;
-    max-width:960px;
+    max-width:100%;
     margin:0 auto;
+    padding:100px;
+    padding-top:0;
+    padding-bottom:0;
     background-color: aliceblue;
 }
 
@@ -9,21 +12,38 @@ header{
     background-color: orange;
     border:2px dotted black;
     margin-bottom:2em;
-}
-h1{
-    text-align: center;
+    max-width:100%;
 }
 
-#courseForm{
+h1{
+    text-align: center;
+    font-size:2em;
+}
+
+#addCourseForm{
     display:flex;
-    flex-direction: column;
-justify-content: center;
+flex-direction: column;
 align-items: center;
 }
 
+#updateCourseForm{
+    display:flex;
+    justify-content: center;
+align-items: flex-end;
+gap:2em;
+}
+    
 button{
     box-shadow: 1px 1px 1px black;
     border-radius: 5px;
+}
+
+#coursesList{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:3em;
 }
 
 footer{
@@ -37,16 +57,73 @@ footer{
 }
 
 
-.container{
-    display: flex;
-    justify-content: space-evenly;
+
+@media screen and (max-width: 375px){
+ 
+    body{
+        padding:0;
+        margin:0;
+        max-width: 100vw;
+    }
+
+    h1{
+        font-size:1.5em;
+    }
+
+    #updateCourseForm{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap:0;
+    }
+
+    #coursesList{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    footer{
+        display:flex;
+        flex-direction: column;
+    }
+
 }
 
-#coursesList{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
-}
 
+@media screen and (min-width: 375px) and (max-width: 1024px){
+ 
+    body{
+        padding:0;
+        margin:0;
+        max-width: 100vw;
+    }
+
+    h1{
+        font-size:1.5em;
+    }
+
+    #updateCourseForm{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap:0;
+    }
+
+    #coursesList{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    footer{
+        display:flex;
+        flex-direction: column;
+    }
+
+}
 

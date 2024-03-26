@@ -22,4 +22,6 @@
 --24-03-2024-- Skapat en huvudklass, "CourseManager" som innehåller metoderna för att lägga till, ta bort och ändra kurser, samt för att spara data till localStorage.
 --25-03-2024-- Istället för getElementById så hämtas data från formulär direkt från formuläret som argument till addCourse-metoden.
 --26-03-2024-- Problem med kontrollsats ifall kurskod är unik. Lagt till trim för att undvika "blanka steg" och toUpperCase. Nu fungerar kontrollen, men problem uppstår vid användning av stora och/eller små bokstäver vid kontroll trots toUpperCase.
---26-03-2024-- Problem med stora/små bokstäver vid kontroll löst genom att rensa cache.  
+--26-03-2024-- Problem med stora/små bokstäver vid kontroll löst genom att rensa cache.
+--26-03-2024-- Justerar CSS, error ("Got unexpected null" vid försök till Npm run start)  
+--26-03-2024-- Raderat node_modules, tagit bort package-lock.json, installerat om npm, uppdaterat npm. Fortfarande error.
