@@ -18,3 +18,8 @@
 --21-03-2024-- Försökt justera funktioner för uppdatering av kursinformation via webbläsaren. Lagt till showupdateForm for nya HTML element vid klick av uppdateraknapp. Lagt till knapp för uppdatering. Får error "Unexpected end of input (at index 34:25)
 --21-03-2024-- Försöker kompilera TS men får errorn "Property "includes" does not exist on type "string[]"" och lika för "findIndex on type "CourseInfo[]". Ändrat "lib" i tsconfig.json till es2015, gav ingen skillnad. Gjort bakåtkompabilitet på package.json, gjorde ingen skillnad. Ska försöka skriva om koden för att undvika "includes" och "findIndex".
 --22-03-2024-- Tagit bort "includes" och "findIndex" och använt for-loop för att hitta kurs i array, samt "indexOf" vid kontroll ifall kurskod är unik. Nu fungerar det är transpilera TS till JS. Men fortfarande error:" Uncaught SyntaxError: Unexpected end of input"
+--24-03-2024-- Lyckas inte lösa " Uncaught SyntaxError: Unexpected end of input". Raderar kod och börjar om med annan struktur.
+--24-03-2024-- Skapat en huvudklass, "CourseManager" som innehåller metoderna för att lägga till, ta bort och ändra kurser, samt för att spara data till localStorage.
+--25-03-2024-- Istället för getElementById så hämtas data från formulär direkt från formuläret som argument till addCourse-metoden.
+--26-03-2024-- Problem med kontrollsats ifall kurskod är unik. Lagt till trim för att undvika "blanka steg" och toUpperCase. Nu fungerar kontrollen, men problem uppstår vid användning av stora och/eller små bokstäver vid kontroll trots toUpperCase.
+--26-03-2024-- Problem med stora/små bokstäver vid kontroll löst genom att rensa cache.  

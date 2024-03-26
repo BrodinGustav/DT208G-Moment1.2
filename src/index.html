@@ -4,25 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moment 1.2 - Grunderna i TypeScript</title>
-    <script src="js/main.ts" type="module"></script>
+    <script src="js/main.js" defer></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
     <h1>Kursapplikation</h1>
 </header>
-    <form id="courseForm">
-        <label for="courseCode">Kurskod:</label><br>
-        <input id="courseCode" type="text" id="courseCode" name="courseCode" value=""><br>
-        <label for="courseName">Kursnamn:</label><br>
-        <input id="courseName" type="text" id="courseName" name="courseName" value=""><br>
-        <label for="courseProgression">Kursprogression:</label><br>
-        <input id="courseProgression" type="text" id="courseProgression" name="courseProgression" value=""><br>
-        <label for="courseURL">KursUrl:</label><br>
-        <input id="courseURL" type="text" id="courseUrl" name="courseUrl" value="""<br>
-        <input id="button" type="button" value="Submit">
+<main>
+    <div class="container">
+    <form id="addCourseForm">
+        <label for="code">Kurskod:</label>
+        <input type="text" id="code" name="code" required><br><br>
+        <label for="name">Kursnamn:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="progression">Progression:</label>
+        <input type="text" id="progression" name="progression" required><br><br>
+        <label for="syllabus">Syllabus:</label>
+        <input type="text" id="syllabus" name="syllabus" required><br><br>
+        <button type="submit">Lägg till kurs</button>
+    </form>    
+    
+    <form id="updateCourseForm">
+        <label for="courseCode">Kurskod att ändra:</label>
+        <input type="text" id="courseCode" name="courseCode" required><br><br>
+        <label for="newProgression">Ny progression:</label>
+        <input type="text" id="newProgression" name="newProgression" required><br><br>
+        <button type="submit">Ändra kurs</button>
     </form>
-    <div id="output"></div>
+
+    </div>
+<hr>
+
+    <div id="coursesList">
+        <!-- Kurser kommer att visas här -->
+    </div>
+
+</main>
     <footer>
         <p>Gustav Brodin</p>
         <p>DT208G</p>

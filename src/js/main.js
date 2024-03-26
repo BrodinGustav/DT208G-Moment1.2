@@ -1,119 +1,144 @@
-//Hämtar DOM-element för utskrift
-var outputDiv = document.getElementById('output');
 //Array som lagrar befintliga kurskoder. Kontroll för att göra varje kurskod unik.
 var existingCourseCodes = [];
-//Array som lagrar befintliga kurser
-var courses = [];
-//Funktion för att spara kurser till localStorage
-function saveCoursesLocalStorage() {
-    localStorage.setItem('courses', JSON.stringify(courses));
-}
-//Funktion för att lägga till ny kurs
-function addCourse() {
-    //Hämta in ID från formulär
-    var courseCodeInput = document.getElementById('courseCode');
-    var courseNameInput = document.getElementById('courseName');
-    var courseProgressionInput = document.getElementById('courseProgression');
-    var courseUrlInput = document.getElementById('courseURL');
-    if (!courseCodeInput || !courseNameInput || !courseProgressionInput || !courseUrlInput) {
-        console.error("Ett eller flera formulärelement hittdes ej");
-        return;
-    }
-    //Hämta in värde från formulär
-    var code = courseCodeInput.value;
-    var name = courseNameInput.value;
-    var progression = courseProgressionInput.value;
-    var syllabus = courseUrlInput.value;
-    //Kontroll för progressionvärden
-    if (progression !== 'A' && progression !== 'B' && progression !== 'C') {
-        console.error("Ogiltigt progressionsvärde. Endast A, B eller C gäller");
-        alert("Endast progressionsvärde A, B eller C gäller");
-        return;
-    }
-    //Kontroll för att säkerställa att kurskod är unik
-    var codeIsUnique = true;
-    if (existingCourseCodes.indexOf(code) !== -1) {
-        console.error("Kurskoden är inte unik.");
-        alert("Kurskoden är inte unik. Var god väljs annan kursokd.");
-        codeIsUnique = false;
-    }
-    if (!codeIsUnique) {
-        return;
-    }
-    /*if(existingCourseCodes.includes(code)) {
-        console.error("Kurskoden är inte unik.");
-        alert("Kurskoden är ej unik. Var god väljs annan kurskod.");
-        return;
-    }*/
-    //Lägg till kurskoden i existingCourseCodes array
-    existingCourseCodes.push(code);
-    //Skapa kursobjekt utifrån interface och lägg till i array för kurser
-    var newCourse = { code: code, name: name, progression: progression, syllabus: syllabus };
-    courses.push(newCourse);
-    //Visa information om ny kurs
-    saveCoursesLocalStorage();
-    displayCourse(newCourse);
-}
-/*****************Test för uppdatering av formulär***********************/
-function showUpdateForm(course) {
-    var updateFormHTML = " \n    <form id=\"updateForm\">\n            <label for=\"newCourseCode\">Ny kurskod:</label><br>\n            <input id=\"newCourseCode\" type=\"text\" name=\"newCourseCode\" value=\"".concat(course.code, "\"><br>\n            <label for=\"newCourseName\">Nytt kursnamn:</label><br>\n            <input id=\"newCourseName\" type=\"text\" name=\"newCourseName\" value=\"").concat(course.name, "\"><br>\n            <label for=\"newCourseProgression\">Ny kursprogression:</label><br>\n            <input id=\"newCourseProgression\" type=\"text\" name=\"newCourseProgression\" value=\"").concat(course.progression, "\"><br>\n            <label for=\"newCourseURL\">Ny kursl\u00E4nk:</label><br>\n            <input id=\"newCourseURL\" type=\"text\" name=\"newCourseURL\" value=\"").concat(course.syllabus, "\"><br>\n            <input id=\"updateButton\" type=\"button\" value=\"Uppdatera\">\n    </form>\n    ");
-    outputDiv.innerHTML = updateFormHTML;
-    //Eventlistener för uppdaterar-knappen
-    var updateBtn = document.getElementById("updateButton");
-    updateBtn.addEventListener("click", function () {
-        //Hämta in nya värden
-        var newCourseCode = document.getElementById('newCourseCode').value;
-        var newCourseName = document.getElementById('newCourseName').value;
-        var newCourseProgression = document.getElementById('newCourseProgression').value;
-        var newCourseURL = document.getElementById('newCourseURL').value;
-        //Uppdatera kursen
-        updateCourse(course, newCourseCode, newCourseName, newCourseProgression, newCourseURL);
-    });
-}
-//Funktion för att uppdatera information om kurs
-function updateCourse(courseToUpdate, newCode, newName, newProgression, newSyllabus) {
-    //Hitta kursen i arrayen av kurser
-    var index = -1;
-    for (var i = 0; i < courses.length; i++) {
-        if (courses[i].code === courseToUpdate.code) {
-            index = i;
-            break;
+// Skapa en klass för att hantera kurser
+var CourseManager = /** @class */ (function () {
+    // Konstruktor för att skapa ett CourseManager-objekt
+    function CourseManager() {
+        // Hämta lagrade kurser från localStorage om det finns, annars skapa en tom lista
+        var storedCourses = localStorage.getItem('courses');
+        if (storedCourses) {
+            this.courses = JSON.parse(storedCourses);
         }
+        else {
+            this.courses = [];
+        }
+        // Visa kurserna på sidan när den laddas
+        this.renderCourses();
     }
-    if (index === -1) {
-        console.error("Kursen kunde inte hittas för uppdatering.");
-        return;
-    }
-    //const index = courses.findIndex(course => course.code === courseToUpdate.code);
-    //Uppdatera info
-    courses[index].code = newCode;
-    courses[index].name = newName;
-    courses[index].progression = newProgression;
-    courses[index].syllabus = newSyllabus;
-    //spara kurs efter uppdatering
-    saveCoursesLocalStorage();
-    //Visa uppdaterad kursinformation
-    displayCourse(courses[index]);
-}
-//Funktion för att visa kursinformation
-function displayCourse(course) {
-    //Skapar HTMLsträng med kursinfo
-    var courseInfoHTML = "<br><strong>Kurskod:</strong> ".concat(course.code, "<br>, \n    <strong>Kursnamn:</strong> ").concat(course.name, "<br>, \n    <strong>Progression:</strong> ").concat(course.progression, "<br>, \n    <strong>Kursl\u00E4nk:</strong> ").concat(course.syllabus, "<br>\n    <button onclick=\"showUpdateForm(").concat(JSON.stringify(course), ")\">Uppdatera</button><br>\n    ");
-    //Lägger till ny kursinfo till befintligt innehåll i output ID
-    outputDiv.innerHTML += courseInfoHTML;
-}
-//Funktion för hämtning av kurser från localStorange
-function loadCoursesLocalStorage() {
-    var storedCourses = localStorage.getItem('courses');
-    if (storedCourses) {
-        courses = JSON.parse(storedCourses);
-        //Visar kurserna när de hämtats
-        courses.forEach(function (course) { return displayCourse(course); });
-    }
-}
-//Ladda kurserna från localStorage när sidan laddas
-window.addEventListener('DOMContentLoaded', loadCoursesLocalStorage);
-//Hämt ID och sätt Eventlistener för knapp kopplad till funktion 
-var submitBtn = document.getElementById("button");
-;
-submitBtn.addEventListener('click', addCourse);
+    /*----------------FUNKTION FÖR ATT LÄGGA TILL KURS-------------------*/
+    // Funktion för att lägga till en ny kurs
+    CourseManager.prototype.addCourse = function (form) {
+        // Skapa en ny kurs med informationen från formuläret
+        var newCourse = {
+            code: form.code.value,
+            name: form.querySelector('#name').value, //Ändrat om för att slippa errorn "value does not exist on type string"
+            progression: form.progression.value.trim().toUpperCase(), // Använt trim() och toUpperCase() för att standardisera värdet
+            syllabus: form.syllabus.value
+        };
+        //Kontroll för att säkerställa att kurskod är unik
+        var newCourseCodeTrimmed = newCourse.code.trim().toUpperCase();
+        if (existingCourseCodes.indexOf(newCourseCodeTrimmed) !== -1) {
+            console.error("Kurskoden är inte unik.");
+            alert("Kurskoden är inte unik. Var god välj annan kurskod.");
+            return;
+        }
+        else {
+            existingCourseCodes.push(newCourseCodeTrimmed); //Lägger till kurskoden i arrayen existingCourseCodes
+        }
+        // Kontroll för progressionvärden
+        var newProgression = form.progression.value.trim().toUpperCase();
+        if (newProgression !== 'A' && newProgression !== 'B' && newProgression !== 'C') {
+            console.error("Ogiltigt progressionsvärde. Endast A, B eller C gäller");
+            alert("Endast progressionsvärde A, B eller C gäller");
+            return;
+        }
+        // Lägg till den nya kursen i listan över kurser
+        this.courses.push(newCourse);
+        //Lägg till den nya kurskoden i existingCouseCodes
+        existingCourseCodes.push(newCourse.code.toUpperCase());
+        // Spara kurserna i localStorage
+        this.saveCourses();
+        // Uppdatera sidan för att visa den nya kursen
+        this.renderCourses();
+    };
+    /*----------------------FUNKTION FÖR ATT ÄNDRA KURS-----------------*/
+    // Funktion för att uppdatera informationen för en befintlig kurs
+    CourseManager.prototype.updateCourse = function (courseCode, newProgression) {
+        //Kontroll ifall progression stämmer
+        if (['A', 'B', 'C'].indexOf(newProgression.trim().toUpperCase()) === -1) {
+            console.error("Fel progressionsvärde. A, B eller C gäller.");
+            alert("Fel progressionsvärde. A, B eller C gäller.");
+            return;
+        }
+        // Loopa igenom alla kurser för att hitta den som ska uppdateras
+        for (var i = 0; i < this.courses.length; i++) {
+            // Om kurskoden matchar, uppdatera progressionen för kursen
+            if (this.courses[i].code === courseCode) {
+                this.courses[i].progression = newProgression;
+                break;
+            }
+        }
+        // Spara kurserna i localStorage
+        this.saveCourses();
+        // Uppdatera sidan för att visa ändringarna
+        this.renderCourses();
+    };
+    /*--------------FUNKTION FÖR ATT TA BORT KURS-------------------------*/
+    // Funktion för att ta bort en kurs
+    CourseManager.prototype.removeCourse = function (courseCode) {
+        // Filtrera ut den kurs som ska tas bort och uppdatera kurslistan
+        this.courses = this.courses.filter(function (course) { return course.code !== courseCode; });
+        this.saveCourses();
+        this.renderCourses();
+    };
+    /*----------------FUNKTION FÖR ATT SPARA KURSER I LOCALSTORAGE--------*/
+    // Funktion för att spara kurserna i localStorage
+    CourseManager.prototype.saveCourses = function () {
+        localStorage.setItem('courses', JSON.stringify(this.courses));
+    };
+    /*--------------------------FUNKTION FÖR ATT VISA KURSER I DOM---------------------------*/
+    // Funktion för att visa kurserna på sidan
+    CourseManager.prototype.renderCourses = function () {
+        var _this = this;
+        var coursesListElement = document.getElementById('coursesList');
+        if (coursesListElement) {
+            // Rensa innehållet innan kurserna läggs till
+            coursesListElement.innerHTML = '';
+            // Loopa igenom alla kurser och skapa HTML-element för varje kurs samt knapp för radering av kurs
+            this.courses.forEach(function (course) {
+                var courseElement = document.createElement('div');
+                courseElement.innerHTML = "\n                    <h3>Kurskod: ".concat(course.code, "</h3>\n                    <p>Kursnamn: ").concat(course.name, "</p>\n                    <p>Progression: ").concat(course.progression, "</p>\n                    <p>Syllabus: ").concat(course.syllabus, "</p>\n                    <button class=\"remove-btn\" data-code=\"").concat(course.code, "\">Ta bort kurs</button> \n                ");
+                // Lägg till en händelselyssnare för att ta bort kursen när knappen klickas på
+                var removeButton = courseElement.querySelector('.remove-btn');
+                if (removeButton) {
+                    removeButton.addEventListener('click', function () {
+                        var courseCode = removeButton.dataset.code;
+                        if (courseCode) {
+                            _this.removeCourse(courseCode);
+                        }
+                    });
+                }
+                // Lägg till kursens HTML-element i DOM:en
+                coursesListElement.appendChild(courseElement);
+            });
+        }
+    };
+    return CourseManager;
+}());
+/*------------------FUNKTION FÖR ATT LÄGGA TILL KURS-----------------------------------*/
+// Skapa ett CourseManager-objekt
+var courseManager = new CourseManager();
+// Hämta formuläret för att lägga till en ny kurs
+var addCourseForm = document.getElementById('addCourseForm');
+// Eventlyssnare på formuläret för att lägga till en ny kurs
+addCourseForm.addEventListener('submit', function (event) {
+    event.preventDefault(); // Förhindra att sidan laddas om när formuläret skickas in
+    courseManager.addCourse(addCourseForm); // Anropa funktionen för att lägga till kursen
+    addCourseForm.reset(); // Rensa formuläret efter att kursen har lagts till
+});
+/*-------------------FUNKTION FÖR ATT ÄNDRA KURS------------------------------------*/
+// Hämta formuläret för att ändra en befintlig kurs
+var updateCourseForm = document.getElementById('updateCourseForm');
+// Eventlyssnare på formuläret för att ändra en befintlig kurs
+updateCourseForm.addEventListener('submit', function (event) {
+    event.preventDefault(); // Förhindra att sidan laddas om när formuläret skickas in
+    // Hämta kurskoden och den nya progressionen från formuläret
+    var courseCodeInput = updateCourseForm.courseCode;
+    var newProgressionInput = updateCourseForm.newProgression;
+    var courseCode = courseCodeInput.value;
+    var newProgression = newProgressionInput.value;
+    // Anropa funktionen för att uppdatera kursen med den nya progressionen
+    courseManager.updateCourse(courseCode, newProgression);
+    // Rensa formuläret efter att kursen har uppdaterats
+    updateCourseForm.reset();
+});
