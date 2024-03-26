@@ -44,8 +44,8 @@ var CourseManager = /** @class */ (function () {
         }
         // Lägg till den nya kursen i listan över kurser
         this.courses.push(newCourse);
-        //Lägg till den nya kurskoden i existingCouseCodes
-        existingCourseCodes.push(newCourse.code.toUpperCase());
+        //Lägg till den nya kurskoden i existingCouseCodes om kurskod är unik
+        existingCourseCodes.push(newCourseCodeTrimmed);
         // Spara kurserna i localStorage
         this.saveCourses();
         // Uppdatera sidan för att visa den nya kursen

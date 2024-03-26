@@ -28,3 +28,4 @@
 --26-03-2024-- Lagt till kontroll för nullvärden i if-satser. Fortfarande error 
 --26-03-2024-- Testat run build med lyckat resultat
 --26-03-2024-- Hittat bugg i kod. Vid fel progressionsvärde för kurs kan detta inte justeras vid nytt försök då kurskoden anses inte vara unik. 
+--26-03-2024-- Justerat så ny kurskod lagras i existingCourseCodes-array endast om unik. 
