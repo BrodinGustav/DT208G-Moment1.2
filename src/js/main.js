@@ -6,7 +6,7 @@ var CourseManager = /** @class */ (function () {
     function CourseManager() {
         // Hämta lagrade kurser från localStorage om det finns, annars skapa en tom lista
         var storedCourses = localStorage.getItem('courses');
-        if (storedCourses) {
+        if (storedCourses !== null) {
             this.courses = JSON.parse(storedCourses);
         }
         else {
@@ -91,7 +91,7 @@ var CourseManager = /** @class */ (function () {
     CourseManager.prototype.renderCourses = function () {
         var _this = this;
         var coursesListElement = document.getElementById('coursesList');
-        if (coursesListElement) {
+        if (coursesListElement !== null) {
             // Rensa innehållet innan kurserna läggs till
             coursesListElement.innerHTML = '';
             // Loopa igenom alla kurser och skapa HTML-element för varje kurs samt knapp för radering av kurs
@@ -100,7 +100,7 @@ var CourseManager = /** @class */ (function () {
                 courseElement.innerHTML = "\n                    <h3>Kurskod: ".concat(course.code, "</h3>\n                    <p>Kursnamn: ").concat(course.name, "</p>\n                    <p>Progression: ").concat(course.progression, "</p>\n                    <p>Syllabus: ").concat(course.syllabus, "</p>\n                    <button class=\"remove-btn\" data-code=\"").concat(course.code, "\">Ta bort kurs</button> \n                ");
                 // Lägg till en händelselyssnare för att ta bort kursen när knappen klickas på
                 var removeButton = courseElement.querySelector('.remove-btn');
-                if (removeButton) {
+                if (removeButton !== null) {
                     removeButton.addEventListener('click', function () {
                         var courseCode = removeButton.dataset.code;
                         if (courseCode) {

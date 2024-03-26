@@ -20,7 +20,7 @@ class CourseManager {
     constructor() {
         // Hämta lagrade kurser från localStorage om det finns, annars skapa en tom lista
         const storedCourses = localStorage.getItem('courses');
-        if (storedCourses) {
+        if (storedCourses !==null) {
             this.courses = JSON.parse(storedCourses);
         } else {
             this.courses = [];
@@ -125,7 +125,7 @@ if (newProgression !== 'A' && newProgression !== 'B' && newProgression !== 'C') 
     // Funktion för att visa kurserna på sidan
     private renderCourses(): void {
         const coursesListElement = document.getElementById('coursesList');
-        if (coursesListElement) {
+        if (coursesListElement !== null) {
             // Rensa innehållet innan kurserna läggs till
             coursesListElement.innerHTML = '';
 
@@ -141,7 +141,7 @@ if (newProgression !== 'A' && newProgression !== 'B' && newProgression !== 'C') 
                 `;
           // Lägg till en händelselyssnare för att ta bort kursen när knappen klickas på
           const removeButton = courseElement.querySelector('.remove-btn') as HTMLButtonElement;
-          if (removeButton) {
+          if (removeButton !== null) {
               removeButton.addEventListener('click', () => {
                 const courseCode = removeButton.dataset.code;
                   if (courseCode) {
