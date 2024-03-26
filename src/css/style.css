@@ -127,3 +127,27 @@ footer{
 
 }
 
+@media screen and (min-width: 1799x) {
+ 
+    h1{
+        font-size:4em;
+    }
+
+    #addCourseForm{
+        font-size:1.5em;
+    }
+
+    #updateCourseForm{
+        font-size: 1.5em;
+    }
+
+    #coursesList{
+font-size:1.5em;
+    }
+
+    footer{
+font-size:1.5em;
+    }
+
+}
+
