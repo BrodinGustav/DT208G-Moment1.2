@@ -26,3 +26,4 @@
 --26-03-2024-- Justerar CSS, error ("Got unexpected null" vid försök till Npm run start)  
 --26-03-2024-- Raderat node_modules, tagit bort package-lock.json, installerat om npm, uppdaterat npm. Fortfarande error.
 --26-03-2024-- Lagt till kontroll för nullvärden i if-satser. Fortfarande error 
+--26-03-2024-- Testat run build med lyckat resultat
