@@ -27,7 +27,7 @@ var CourseManager = /** @class */ (function () {
         };
         //Kontroll för att säkerställa att kurskod är unik
         var newCourseCodeTrimmed = newCourse.code.trim().toUpperCase();
-        if (existingCourseCodes.indexOf(newCourseCodeTrimmed) !== -1) {
+        if (this.courses.some(function (course) { return course.code === newCourseCodeTrimmed; })) {
             console.error("Kurskoden är inte unik.");
             alert("Kurskoden är inte unik. Var god välj annan kurskod.");
             return;

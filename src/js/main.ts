@@ -45,7 +45,7 @@ class CourseManager {
     
  //Kontroll för att säkerställa att kurskod är unik
 const newCourseCodeTrimmed = newCourse.code.trim().toUpperCase();
-if (existingCourseCodes.indexOf(newCourseCodeTrimmed) !== -1) {
+if (this.courses.some(course => course.code === newCourseCodeTrimmed)) {
     console.error("Kurskoden är inte unik.");
     alert("Kurskoden är inte unik. Var god välj annan kurskod.");
     return;
