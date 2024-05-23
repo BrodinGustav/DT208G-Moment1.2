@@ -1,153 +1,68 @@
-body{
-    margin:0;
-    max-width:100%;
-    margin:0 auto;
-    padding:100px;
-    padding-top:0;
-    padding-bottom:0;
-    background-color: aliceblue;
+/* Allmän reset för att ta bort standardmarginaler och paddingar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-header{
-    background-color: orange;
-    border:2px dotted black;
-    margin-bottom:2em;
-    max-width:100%;
-}
-
-h1{
+/* Styla header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
     text-align: center;
-    font-size:2em;
 }
 
-#addCourseForm{
-    display:flex;
-flex-direction: column;
-align-items: center;
+/* Styla main */
+main {
+    padding: 20px;
 }
 
-#updateCourseForm{
-    display:flex;
-    justify-content: center;
-align-items: flex-end;
-gap:2em;
+/* Styla formulär */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
 }
-    
-button{
-    box-shadow: 1px 1px 1px black;
-    border-radius: 5px;
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-top:0.5em;
+}
+
+button:hover {
+    background-color: #0056b3;
 }
 
 #coursesList{
     display:flex;
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
-    gap:3em;
+    flex-direction: column;
+    gap:2em;
+    margin-top:1em;
 }
 
-footer{
-    display:flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width:100%;
-    margin-top:8em;
-    background-color: lightgreen;
-    border:2px dotted black;
+/* Styla footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
 }
-
-
-
-@media screen and (max-width: 375px){
- 
-    body{
-        padding:0;
-        margin:0;
-        max-width: 100vw;
-    }
-
-    h1{
-        font-size:1.5em;
-    }
-
-    #updateCourseForm{
-        display:flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap:0;
-    }
-
-    #coursesList{
-        display:flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    footer{
-        display:flex;
-        flex-direction: column;
-    }
-
-}
-
-
-@media screen and (min-width: 375px) and (max-width: 1024px){
- 
-    body{
-        padding:0;
-        margin:0;
-        max-width: 100vw;
-    }
-
-    h1{
-        font-size:1.5em;
-    }
-
-    #updateCourseForm{
-        display:flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap:0;
-    }
-
-    #coursesList{
-        display:flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    footer{
-        display:flex;
-        flex-direction: column;
-    }
-
-}
-
-@media screen and (min-width: 1799px) {
- 
-    h1{
-        font-size:4em;
-    }
-
-    #addCourseForm{
-        font-size:1.5em;
-    }
-
-    #updateCourseForm{
-        font-size: 1.5em;
-    }
-
-    #coursesList{
-font-size:1.5em;
-    }
-
-    footer{
-font-size:1.5em;
-    }
-
-}
-
