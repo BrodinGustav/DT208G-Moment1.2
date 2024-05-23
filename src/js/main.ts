@@ -7,9 +7,6 @@ interface CourseInfo  {
 }
 
 
-//Array som lagrar befintliga kurskoder. Kontroll för att göra varje kurskod unik.
-const existingCourseCodes: string [] = [];
-
 // Skapa en klass för att hantera kurser
 class CourseManager {
 
@@ -18,6 +15,7 @@ class CourseManager {
     
     // Konstruktor för att skapa ett CourseManager-objekt
     constructor() {
+
         // Hämta lagrade kurser från localStorage om det finns, annars skapa en tom lista
         const storedCourses = localStorage.getItem('courses');
         if (storedCourses !==null) {
@@ -36,23 +34,21 @@ class CourseManager {
     addCourse(form: HTMLFormElement): void {
 
         // Skapa en ny kurs med informationen från formuläret
+        const standardizedCode = form.code.value.trim().toUpperCase();
         const newCourse: CourseInfo = {
-            code: form.code.value,
-            name: (form.querySelector('#name') as HTMLInputElement).value, //Ändrat om för att slippa errorn "value does not exist on type string"
-            progression: form.progression.value.trim().toUpperCase(), // Använt trim() och toUpperCase() för att standardisera värdet
-            syllabus: form.syllabus.value
+            code: standardizedCode,
+            name: (form.querySelector('#name') as HTMLInputElement).value.trim(),      //Ändrat om för att slippa errorn "value does not exist on type string"
+            progression: form.progression.value.trim().toUpperCase(),           // Använt trim() och toUpperCase() för att standardisera värdet
+            syllabus: form.syllabus.value.trim()
         };
-    
- //Kontroll för att säkerställa att kurskod är unik
-const newCourseCodeTrimmed = newCourse.code.trim().toUpperCase();
-if (this.courses.some(course => course.code === newCourseCodeTrimmed)) {
-    console.error("Kurskoden är inte unik.");
-    alert("Kurskoden är inte unik. Var god välj annan kurskod.");
-    return;
-} else {
-    existingCourseCodes.push(newCourseCodeTrimmed); //Lägger till kurskoden i arrayen existingCourseCodes
-}
- 
+
+          // Kontroll för att säkerställa att kurskod är unik
+    if (this.courses.some(course => course.code === standardizedCode)) {
+        console.error("Kurskoden är inte unik.");
+        alert("Kurskoden är inte unik. Var god välj annan kurskod.");
+        return;
+    }
+
    // Kontroll för progressionvärden
 const newProgression = form.progression.value.trim().toUpperCase();
 if (newProgression !== 'A' && newProgression !== 'B' && newProgression !== 'C') {
@@ -64,10 +60,7 @@ if (newProgression !== 'A' && newProgression !== 'B' && newProgression !== 'C') 
         // Lägg till den nya kursen i listan över kurser
         this.courses.push(newCourse);
 
-        //Lägg till den nya kurskoden i existingCouseCodes om kurskod är unik
-        existingCourseCodes.push(newCourseCodeTrimmed);
-
-        // Spara kurserna i localStorage
+         // Spara kurserna i localStorage
         this.saveCourses();
 
         // Uppdatera sidan för att visa den nya kursen
@@ -126,6 +119,7 @@ if (newProgression !== 'A' && newProgression !== 'B' && newProgression !== 'C') 
     private renderCourses(): void {
         const coursesListElement = document.getElementById('coursesList');
         if (coursesListElement !== null) {
+      
             // Rensa innehållet innan kurserna läggs till
             coursesListElement.innerHTML = '';
 
@@ -139,6 +133,7 @@ if (newProgression !== 'A' && newProgression !== 'B' && newProgression !== 'C') 
                     <p>Syllabus: ${course.syllabus}</p>
                     <button class="remove-btn" data-code="${course.code}">Ta bort kurs</button> 
                 `;
+
           // Lägg till en händelselyssnare för att ta bort kursen när knappen klickas på
           const removeButton = courseElement.querySelector('.remove-btn') as HTMLButtonElement;
           if (removeButton !== null) {
@@ -157,7 +152,7 @@ if (newProgression !== 'A' && newProgression !== 'B' && newProgression !== 'C') 
     }
 }
 
-/*------------------FUNKTION FÖR ATT LÄGGA TILL KURS-----------------------------------*/
+/*------------------HÄNDELSELYSSNARE PÅ FORMULÄR FÖR ATT LÄGGA TILL KURS-----------------------------------*/
 
 // Skapa ett CourseManager-objekt
 const courseManager = new CourseManager();
@@ -167,19 +162,19 @@ const addCourseForm = document.getElementById('addCourseForm') as HTMLFormElemen
 
 // Eventlyssnare på formuläret för att lägga till en ny kurs
 addCourseForm.addEventListener('submit', function(event) {
-    event.preventDefault(); // Förhindra att sidan laddas om när formuläret skickas in
-    courseManager.addCourse(addCourseForm); // Anropa funktionen för att lägga till kursen
-    addCourseForm.reset(); // Rensa formuläret efter att kursen har lagts till
+    event.preventDefault();                                             // Förhindra att sidan laddas om när formuläret skickas in
+    courseManager.addCourse(addCourseForm);                             // Anropa funktionen för att lägga till kursen
+    addCourseForm.reset();                                              // Rensa formuläret efter att kursen har lagts till
 });
 
-/*-------------------FUNKTION FÖR ATT ÄNDRA KURS------------------------------------*/
+/*-------------------HÄNDELSELYSSNARE PÅ FORMULÄR FÖR ATT ÄNDRA KURS------------------------------------*/
 
 // Hämta formuläret för att ändra en befintlig kurs
 const updateCourseForm = document.getElementById('updateCourseForm') as HTMLFormElement;
 
 // Eventlyssnare på formuläret för att ändra en befintlig kurs
 updateCourseForm.addEventListener('submit', function(event) {
-    event.preventDefault(); // Förhindra att sidan laddas om när formuläret skickas in
+    event.preventDefault();                                             // Förhindra att sidan laddas om när formuläret skickas in
     
     // Hämta kurskoden och den nya progressionen från formuläret
     const courseCodeInput = updateCourseForm.courseCode as HTMLInputElement;
