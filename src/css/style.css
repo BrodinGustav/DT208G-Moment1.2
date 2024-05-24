@@ -54,8 +54,10 @@ button:hover {
 
 #coursesList{
     display:flex;
-    flex-direction: column;
-    gap:2em;
+flex-wrap:wrap;
+    align-items: center;
+    justify-content: center;
+        gap:2em;
     margin-top:1em;
 }
 
