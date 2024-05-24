@@ -41,11 +41,7 @@
                 syllabus: form.syllabus.value.trim()
             };
 
-            // Loggar värdet på newCourse.coe
-    console.log("New Course Code:", newCourse.code);
-
-
-            // Kontroll för att säkerställa att kurskod är unik
+               // Kontroll för att säkerställa att kurskod är unik
         if (this.courses.find(course => course.code === newCourse.code))  {
             console.error("Kurskoden är inte unik.");
             alert("Kurskoden är inte unik. Var god välj annan kurskod.");
@@ -73,8 +69,8 @@
 
     /*----------------------FUNKTION FÖR ATT ÄNDRA KURS-----------------*/
 
-        // Funktion för att uppdatera informationen för en befintlig kurs
-        updateCourse(courseCode: string, newProgression: string): void {
+         // Funktion för att uppdatera informationen för en befintlig kurs
+         updateCourse(courseCode: string, newProgression: string): void {
             //Kontroll ifall progression stämmer
             if(['A', 'B', 'C'].indexOf(newProgression.trim().toUpperCase())=== -1){
                 console.error("Fel progressionsvärde. A, B eller C gäller.");
@@ -87,6 +83,9 @@
                 if (this.courses[i].code === courseCode) {
                     this.courses[i].progression = newProgression;
                     break; 
+                }else {
+                    console.error("Ingen kurs med denna kod hittades.");
+                    alert("Ingen kurs med denna kod hittades.");
                 }
             }
 
@@ -96,7 +95,7 @@
             // Uppdatera sidan för att visa ändringarna
             this.renderCourses();
         }
-
+            
     /*--------------FUNKTION FÖR ATT TA BORT KURS-------------------------*/
 
     // Funktion för att ta bort en kurs
@@ -109,7 +108,7 @@
 
         this.renderCourses();
     }
-
+         
     /*----------------FUNKTION FÖR ATT SPARA KURSER I LOCALSTORAGE--------*/
 
     // Funktion för att spara kurserna i localStorage
@@ -155,6 +154,7 @@
             }
         }
     }
+
 
     /*------------------HÄNDELSELYSSNARE PÅ FORMULÄR FÖR ATT LÄGGA TILL KURS-----------------------------------*/
 
