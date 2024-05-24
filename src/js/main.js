@@ -1,5 +1,3 @@
-//Array som lagrar befintliga kurskoder. Kontroll för att göra varje kurskod unik.
-var existingCourseCodes = [];
 // Skapa en klass för att hantera kurser
 var CourseManager = /** @class */ (function () {
     // Konstruktor för att skapa ett CourseManager-objekt
@@ -20,20 +18,18 @@ var CourseManager = /** @class */ (function () {
     CourseManager.prototype.addCourse = function (form) {
         // Skapa en ny kurs med informationen från formuläret
         var newCourse = {
-            code: form.code.value,
-            name: form.querySelector('#name').value, //Ändrat om för att slippa errorn "value does not exist on type string"
+            code: form.code.value.trim().toUpperCase(),
+            name: form.querySelector('#name').value.trim(),
             progression: form.progression.value.trim().toUpperCase(), // Använt trim() och toUpperCase() för att standardisera värdet
-            syllabus: form.syllabus.value
+            syllabus: form.syllabus.value.trim()
         };
-        //Kontroll för att säkerställa att kurskod är unik
-        var newCourseCodeTrimmed = newCourse.code.trim().toUpperCase();
-        if (this.courses.some(function (course) { return course.code === newCourseCodeTrimmed; })) {
+        // Loggar värdet på newCourse.coe
+        console.log("New Course Code:", newCourse.code);
+        // Kontroll för att säkerställa att kurskod är unik
+        if (this.courses.some(function (course) { return course.code === newCourse.code.trim().toUpperCase(); })) {
             console.error("Kurskoden är inte unik.");
             alert("Kurskoden är inte unik. Var god välj annan kurskod.");
             return;
-        }
-        else {
-            existingCourseCodes.push(newCourseCodeTrimmed); //Lägger till kurskoden i arrayen existingCourseCodes
         }
         // Kontroll för progressionvärden
         var newProgression = form.progression.value.trim().toUpperCase();
@@ -44,8 +40,6 @@ var CourseManager = /** @class */ (function () {
         }
         // Lägg till den nya kursen i listan över kurser
         this.courses.push(newCourse);
-        //Lägg till den nya kurskoden i existingCouseCodes om kurskod är unik
-        existingCourseCodes.push(newCourseCodeTrimmed);
         // Spara kurserna i localStorage
         this.saveCourses();
         // Uppdatera sidan för att visa den nya kursen
@@ -97,7 +91,7 @@ var CourseManager = /** @class */ (function () {
             // Loopa igenom alla kurser och skapa HTML-element för varje kurs samt knapp för radering av kurs
             this.courses.forEach(function (course) {
                 var courseElement = document.createElement('div');
-                courseElement.innerHTML = "\n                    <h3>Kurskod: ".concat(course.code, "</h3>\n                    <p>Kursnamn: ").concat(course.name, "</p>\n                    <p>Progression: ").concat(course.progression, "</p>\n                    <p>Syllabus: ").concat(course.syllabus, "</p>\n                    <button class=\"remove-btn\" data-code=\"").concat(course.code, "\">Ta bort kurs</button> \n                ");
+                courseElement.innerHTML = "\n                        <h3>Kurskod: ".concat(course.code, "</h3>\n                        <p>Kursnamn: ").concat(course.name, "</p>\n                        <p>Progression: ").concat(course.progression, "</p>\n                        <p>Syllabus: ").concat(course.syllabus, "</p>\n                        <button class=\"remove-btn\" data-code=\"").concat(course.code, "\">Ta bort kurs</button> \n                    ");
                 // Lägg till en händelselyssnare för att ta bort kursen när knappen klickas på
                 var removeButton = courseElement.querySelector('.remove-btn');
                 if (removeButton !== null) {
@@ -115,7 +109,7 @@ var CourseManager = /** @class */ (function () {
     };
     return CourseManager;
 }());
-/*------------------FUNKTION FÖR ATT LÄGGA TILL KURS-----------------------------------*/
+/*------------------HÄNDELSELYSSNARE PÅ FORMULÄR FÖR ATT LÄGGA TILL KURS-----------------------------------*/
 // Skapa ett CourseManager-objekt
 var courseManager = new CourseManager();
 // Hämta formuläret för att lägga till en ny kurs
@@ -126,7 +120,7 @@ addCourseForm.addEventListener('submit', function (event) {
     courseManager.addCourse(addCourseForm); // Anropa funktionen för att lägga till kursen
     addCourseForm.reset(); // Rensa formuläret efter att kursen har lagts till
 });
-/*-------------------FUNKTION FÖR ATT ÄNDRA KURS------------------------------------*/
+/*-------------------HÄNDELSELYSSNARE PÅ FORMULÄR FÖR ATT ÄNDRA KURS------------------------------------*/
 // Hämta formuläret för att ändra en befintlig kurs
 var updateCourseForm = document.getElementById('updateCourseForm');
 // Eventlyssnare på formuläret för att ändra en befintlig kurs

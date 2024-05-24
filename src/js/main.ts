@@ -46,11 +46,12 @@
 
 
             // Kontroll för att säkerställa att kurskod är unik
-        if (this.courses.some(course => course.code === newCourse.code.trim().toUpperCase()))  {
+        if (this.courses.find(course => course.code === newCourse.code))  {
             console.error("Kurskoden är inte unik.");
             alert("Kurskoden är inte unik. Var god välj annan kurskod.");
             return;
         }
+
 
     // Kontroll för progressionvärden
     const newProgression = form.progression.value.trim().toUpperCase();
